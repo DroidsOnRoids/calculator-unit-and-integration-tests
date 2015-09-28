@@ -1,0 +1,65 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingBottom="@dimen/activity_margin"
+	android:paddingLeft="@dimen/activity_margin"
+	android:paddingRight="@dimen/activity_margin"
+	android:paddingTop="@dimen/activity_margin"
+	tools:context=".MainActivity">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/input"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/activity_margin_halved">
+
+		<EditText
+			android:id="@+id/first_editText"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:inputType="number"/>
+
+		<Spinner
+			android:id="@+id/spinner"
+			android:layout_width="70dp"
+			android:layout_height="wrap_content"/>
+
+
+		<EditText
+			android:id="@+id/second_editText"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:inputType="number"/>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/ok_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/activity_margin_halved"
+		android:text="@android:string/ok"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/activity_margin_halved"
+		android:text="@string/result"/>
+
+	<EditText
+		android:id="@+id/result_editText"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/activity_margin_halved"
+		android:inputType="number"/>
+
+</LinearLayout>
