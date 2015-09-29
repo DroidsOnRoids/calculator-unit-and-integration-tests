@@ -18,6 +18,7 @@ public class Calculator {
 				break;
 			case Sign.DIVIDE:
 				result = firstNumberFloat / secondNumberFloat;
+				break;
 		}
 		return result;
 	}
