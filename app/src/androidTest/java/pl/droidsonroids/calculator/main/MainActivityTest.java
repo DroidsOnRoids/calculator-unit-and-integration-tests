@@ -1,9 +1,14 @@
-package pl.droidsonroids.calculator;
+package pl.droidsonroids.calculator.main;
 
-import pl.droidsonroids.calculator.dagger.InjectedBaseActivityTest;
-import pl.droidsonroids.calculator.data.Sign;
+import android.support.test.espresso.matcher.ViewMatchers;
+import android.test.ActivityInstrumentationTestCase2;
+
+import org.mockito.Mock;
+
+import pl.droidsonroids.calculator.R;
+import pl.droidsonroids.calculator.data.Calculator;
+import pl.droidsonroids.calculator.data.Calculator.Sign;
 import pl.droidsonroids.calculator.main.MainActivity;
-import rx.Observable;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -17,7 +22,7 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 
-public class MainActivityTest extends InjectedBaseActivityTest {
+public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
 	public MainActivityTest() {
 		super(MainActivity.class);
@@ -30,9 +35,7 @@ public class MainActivityTest extends InjectedBaseActivityTest {
 	}
 
 	public void testAdditionSuccess() {
-		when(mMockApi.calculate(1, 1, Sign.PLUS)).thenReturn(2.0f);
-
-		onView(withId(R.id.first_editText)).perform(typeText("1"));
+		onView(ViewMatchers.withId(R.id.first_editText)).perform(typeText("1"));
 		onView(withId(R.id.second_editText)).perform(typeText("1"));
 		onView(withId(R.id.spinner)).perform(click());
 		onData(allOf(is(instanceOf(String.class)), is(Sign.PLUS))).perform(click());
@@ -42,8 +45,6 @@ public class MainActivityTest extends InjectedBaseActivityTest {
 	}
 
 	public void testInfinity() {
-		when(mMockApi.calculate(12, 0, Sign.DIVIDE)).thenReturn(Float.POSITIVE_INFINITY);
-
 		onView(withId(R.id.first_editText)).perform(typeText("12"));
 		onView(withId(R.id.second_editText)).perform(typeText("0"));
 		onView(withId(R.id.spinner)).perform(click());
@@ -54,8 +55,6 @@ public class MainActivityTest extends InjectedBaseActivityTest {
 	}
 
 	public void testNotANumber() {
-		when(mMockApi.calculate(0, 0, Sign.DIVIDE)).thenReturn(Float.NaN);
-
 		onView(withId(R.id.first_editText)).perform(typeText("0"));
 		onView(withId(R.id.second_editText)).perform(typeText("0"));
 		onView(withId(R.id.spinner)).perform(click());
