@@ -7,26 +7,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import pl.droidsonroids.calculator.BuildConfig;
-import pl.droidsonroids.calculator.CalculatorApplication;
 import pl.droidsonroids.calculator.R;
+import pl.droidsonroids.calculator.TestCalculatorApplication;
 import pl.droidsonroids.calculator.data.Calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21)
+@Config(constants = BuildConfig.class, sdk = 21, application = TestCalculatorApplication.class)
 public class MainActivityTest {
 
 	private MainActivity activity;
 
 	@Before
 	public void setUp() throws Exception {
-		((CalculatorApplication) RuntimeEnvironment.application).initTestMode();
 		activity = Robolectric.setupActivity(MainActivity.class);
 		verify(activity.presenter).init();
 	}
