@@ -1,4 +1,4 @@
-package pl.droidsonroids.calculator.data.dagger.main;
+package pl.droidsonroids.calculator.dagger.main;
 
 import dagger.Module;
 import dagger.Provides;

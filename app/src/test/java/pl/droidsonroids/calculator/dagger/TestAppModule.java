@@ -1,4 +1,4 @@
-package pl.droidsonroids.calculator.data.dagger;
+package pl.droidsonroids.calculator.dagger;
 
 import org.mockito.Mockito;
 

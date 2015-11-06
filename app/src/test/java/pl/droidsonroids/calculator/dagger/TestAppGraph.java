@@ -1,10 +1,9 @@
-package pl.droidsonroids.calculator.data.dagger;
+package pl.droidsonroids.calculator.dagger;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 import pl.droidsonroids.calculator.TestCalculatorApplication;
-import pl.droidsonroids.calculator.dagger.AppGraph;
 
 @Singleton
 @Component(modules = TestAppModule.class)
